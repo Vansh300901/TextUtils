@@ -18,6 +18,10 @@ export default function TextForm(props) {
         setTextarea(newText)
     }
 
+    const handleClearClick = () => {
+        setTextarea('')
+    }
+
     return (
         <>
             <div className='container'>
@@ -27,6 +31,7 @@ export default function TextForm(props) {
                 </div>
                 <button className="btn btn-outline-primary mx-2" onClick={handleUppercaseClick}>Convert to Uppercase</button>
                 <button className="btn btn-outline-success mx-2" onClick={handleLowercaseClick}>Convert to Lowercase</button>
+                <button className="btn btn-outline-danger mx-2" onClick={handleClearClick}>Clear Text</button>
             </div>
             <div className="container my-3">
                 <h2>Your Text Summary</h2>
