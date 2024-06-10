@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-export default function TextForm(props) {
+const TextForm = (props) => {
     const [textarea, setTextarea] = useState('');
 
     const handleTextChange = (event) => {
@@ -43,4 +43,6 @@ export default function TextForm(props) {
         </>
     )
 }
+
+export default TextForm
 
