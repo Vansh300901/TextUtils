@@ -22,6 +22,16 @@ const TextForm = (props) => {
         setTextarea('')
     }
 
+    const handleCopyClick = () => {
+        console.log(document.getElementById("myBox"))
+        navigator.clipboard.writeText(document.getElementById("myBox").select())
+    }
+
+    const handleRemoveSpacesClick = () => {
+        let newText = textarea.split(/[ ]+/);
+        setTextarea(newText.join(" "))
+    }
+
     return (
         <>
             <div className='container'>
@@ -31,6 +41,8 @@ const TextForm = (props) => {
                 </div>
                 <button className="btn btn-outline-primary mx-2" onClick={handleUppercaseClick}>Convert to Uppercase</button>
                 <button className="btn btn-outline-success mx-2" onClick={handleLowercaseClick}>Convert to Lowercase</button>
+                <button className="btn btn-outline-dark mx-2" onClick={handleRemoveSpacesClick}>Remove Extra Spacex</button>
+                <button className="btn btn-outline-secondary mx-2" onClick={handleCopyClick}>Copy Text</button>
                 <button className="btn btn-outline-danger mx-2" onClick={handleClearClick}>Clear Text</button>
             </div>
             <div className="container my-3">
