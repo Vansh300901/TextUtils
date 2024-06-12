@@ -9,31 +9,54 @@ const TextForm = (props) => {
     }
 
     const handleUppercaseClick = () => {
-        let newText = textarea.toUpperCase();
-        setTextarea(newText)
-        props.showAlert("Successfully converted to Uppercase", "success")
+        if (checkUserInput()) {
+            let newText = textarea.toUpperCase();
+            setTextarea(newText)
+            props.showAlert("Successfully Converted To Uppercase", "success")
+        }
     }
 
     const handleLowercaseClick = () => {
-        let newText = textarea.toLowerCase();
-        setTextarea(newText)
-        props.showAlert("Successfully converted to Lowercase", "success")
+        if (checkUserInput()) {
+
+            let newText = textarea.toLowerCase();
+            setTextarea(newText)
+            props.showAlert("Successfully Tonverted To Lowercase", "success")
+        }
     }
 
     const handleClearClick = () => {
-        setTextarea('')
-        props.showAlert("Successfully cleared the textbox", "success")
+        if (checkUserInput()) {
+
+            setTextarea('')
+            props.showAlert("Successfully Cleared The Textbox", "success")
+        }
     }
 
     const handleCopyClick = () => {
-        navigator.clipboard.writeText(textarea)
-        props.showAlert("Successfully copied to Clipboard", "success")
+        if (checkUserInput()) {
+
+            navigator.clipboard.writeText(textarea)
+            props.showAlert("Successfully Copied To Clipboard", "success")
+        }
     }
 
     const handleRemoveSpacesClick = () => {
-        let newText = textarea.split(/[ ]+/);
-        setTextarea(newText.join(" "))
-        props.showAlert("Successfully removed extra spaces", "success")
+        if (checkUserInput()) {
+
+            let newText = textarea.split(/[ ]+/);
+            setTextarea(newText.join(" "))
+            props.showAlert("Successfully Removed Extra Spaces", "success")
+        }
+    }
+
+    const checkUserInput = () => {
+        if (textarea === "") {
+            props.showAlert("Enter Something In The Textbox To Perform The Operation", "danger");
+            return false;
+        }
+
+        return true;
     }
 
     useEffect(() => {
